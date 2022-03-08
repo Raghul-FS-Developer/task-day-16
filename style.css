@@ -1,0 +1,13 @@
+.pagination__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page__header {
+  background-color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: blueviolet;
+}
