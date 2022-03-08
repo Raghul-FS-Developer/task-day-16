@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pagination</title>
+    <title>Realtime Form</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -16,13 +16,209 @@
       integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="style.css" />
-    <script>
-      const currentPage = "Home page";
-    </script>
-  </head>
 
-  <body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body onload="renderTable();">
+    <nav class="navbar navbar-light bg-light">
+      <a class="px-5 navbar-brand" href="#">Realtime form</a>
+    </nav>
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-sm-12 col-lg-8">
+          <table class="table table-hover table-bordered">
+            <thead>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Address</th>
+                <th>Pincode</th>
+                <th>Gender</th>
+                <th>Choice of Food</th>
+                <th>State</th>
+                <th>Country</th>
+              </tr>
+            </thead>
+            <tbody id="formData"></tbody>
+          </table>
+        </div>
+        <div class="col-sm-12 col-lg-4">
+          <form id="userForm">
+            <div class="mb-2">
+              <label for="firstName" class="form-label">First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                name="formData"
+                id="firstName"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="lastName" class="form-label">Last name</label>
+              <input
+                name="formData"
+                type="text"
+                class="form-control"
+                id="lastName"
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label me-3">Gender: </label>
+              <div class="form-check form-check-inline me-4">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="gender"
+                  id="female"
+                  value="Female"
+                />
+                <label class="form-check-label" for="female"> Female </label>
+              </div>
+              <div class="form-check form-check-inline me-4">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="gender"
+                  id="male"
+                  value="Male"
+                />
+                <label class="form-check-label" for="male"> Male </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="gender"
+                  id="other"
+                  value="Other"
+                />
+                <label class="form-check-label" for="other"> Other </label>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="choiceOfFood" class="form-label"
+                >Choice of food:</label
+              ><br />
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Indian"
+                  id="indian"
+                  name="choiceOfFood"
+                />
+                <label class="form-check-label" for="indian"> Indian </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Italian"
+                  id="italian"
+                  name="choiceOfFood"
+                />
+                <label class="form-check-label" for="italian"> Italian </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Japanese"
+                  id="japanese"
+                  name="choiceOfFood"
+                />
+                <label class="form-check-label" for="japanese">
+                  Japanese
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="French"
+                  id="french"
+                  name="choiceOfFood"
+                />
+                <label class="form-check-label" for="french"> French </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Greece"
+                  id="greece"
+                  name="choiceOfFood"
+                />
+                <label class="form-check-label" for="greece"> Greece </label>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="address" class="form-label">Address</label>
+              <input
+                name="formData"
+                type="text"
+                class="form-control"
+                id="address"
+                name="choiceOfFood"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="state" class="form-label">State</label>
+              <input
+                name="formData"
+                type="text"
+                class="form-control"
+                id="state"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="country" class="form-label">Country</label>
+              <input
+                name="formData"
+                type="text"
+                class="form-control"
+                id="country"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="pincode" class="form-label">Pincode</label>
+              <input
+                name="formData"
+                type="text"
+                class="form-control"
+                id="pincode"
+              />
+            </div>
+
+            <p id="message"></p>
+            <button type="submit" class="btn btn-primary">Add user</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="position-fixed bottom-0 start-0 p-3" style="z-index: 11">
+      <div
+        id="liveToast"
+        class="toast"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+        data-bs-delay="10000"
+      >
+        <div class="toast-header">
+          <strong class="me-auto">Realtime Form</strong>
+          <small>0 mins ago</small>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="toast-body" id="toast-body"></div>
+      </div>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>

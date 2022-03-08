@@ -1,13 +1,21 @@
-.pagination__container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.error__toast {
+  color: crimson;
+  font-size: bold;
+  padding: 10px 10px 10px 15px;
 }
 
-.page__header {
-  background-color: aliceblue;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: blueviolet;
+.error__message {
+  color: crimson;
+  font-size: bold;
+}
+
+.success__toast {
+  color: rgb(57, 138, 2);
+  font-size: bold;
+  padding: 10px 10px 10px 15px;
+}
+
+.success__message {
+  color: rgb(57, 138, 2);
+  font-size: bold;
 }
